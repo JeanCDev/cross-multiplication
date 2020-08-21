@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AppLoading } from 'expo';
 
 import { StatusBar } from 'expo-status-bar';
@@ -17,6 +17,11 @@ export default function App() {
     Roboto_700Bold_Italic,
   });
 
+  const [a, setA] = useState('');
+  const [b, setB] = useState('');
+  const [c, setC] = useState('');
+  const [x, setX] = useState('');
+  
   if (!fontsLoaded) {
     return <AppLoading />;
   } else {
@@ -29,12 +34,20 @@ export default function App() {
         <View style={styles.body}>
           <View style={styles.inputGroup}>
             <TextInput
+              onChangeText={text =>{
+                setA(text);
+              }}
+              value={a}
               autoFocus={true}
               keyboardType="numeric"
               placeholder="A"
               style={styles.input} />
+
             <TextInput
-              autoFocus={true}
+              onChangeText={text =>{
+                setB(text);
+              }}
+              value={b}
               keyboardType="numeric"
               placeholder="B"
               style={styles.input} />
@@ -42,22 +55,39 @@ export default function App() {
 
           <View style={styles.inputGroup}>
             <TextInput
-              autoFocus={true}
+              onChangeText={text =>{
+                setC(text);
+              }}
+              value={c}
               keyboardType="numeric"
               placeholder="C"
               style={styles.input} />
+
             <TextInput
+              value={x}
               editable={false}
-              keyboardType="numeric"
               placeholder="X"
               style={[styles.input, styles.inputDisabled]} />
           </View>
 
           <View style={styles.buttonGroup}>
-            <RectButton style={[styles.buttonClear, styles.button]}>
-              <Text style={styles.buttonText}>Limpar</Text>
+            <RectButton 
+              style={[styles.buttonClear, styles.button]}
+              onPress={()=>{
+                setA('')
+                setB('')
+                setC('')
+                setX('')
+              }}>
+                <Text style={styles.buttonText}>Limpar</Text>
             </RectButton>
-            <RectButton style={[styles.buttonCalc, styles.button]}>
+
+            <RectButton 
+              style={[styles.buttonCalc, styles.button]}
+              onPress={()=>{
+                let resp = (parseFloat(b)*parseFloat(c))/parseFloat(a)
+                setX(resp.toString())
+              }}>
               <Text style={styles.buttonText}>Calcular</Text>
             </RectButton>
           </View>
