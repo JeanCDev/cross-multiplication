@@ -19,4 +19,4 @@ This app was made using React Native
 ## Print Screen of the final app
 ![Print screen of the app](https://i.imgur.com/CkmevwG.png)
 
-This app whas made for the Android plataform
+This app was made for the Android plataform
