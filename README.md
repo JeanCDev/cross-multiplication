@@ -17,6 +17,6 @@ This app was made using React Native
 ![Loading Screen](https://imgur.com/4NL4l0H)
 
 ## Print Screen of the final app
-![Print screen of the app](https://imgur.com/CkmevwG)
+![Print screen of the app](https://i.imgur.com/CkmevwG.png)
 
 This app whas made for the Android plataform
